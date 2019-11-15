@@ -52,14 +52,13 @@ public class PlayerController : MonoBehaviour
 
     private void CursorLockUpdate()
     {
-        if (Input.GetKeyUp(KeyCode.Escape)) { cursorLocked = false; }
-        else if (Input.GetMouseButtonUp(0)) { cursorLocked = true; }
-
-        if (cursorLocked) {
-            Cursor.visible = false;
-        } else if (!cursorLocked) {
-            Cursor.visible = true;
+        if (Input.GetKeyUp(KeyCode.Escape)) {
+            cursorLocked = false;
+        } else if (Input.GetMouseButtonUp(0)) {
+            cursorLocked = true;
         }
+
+        Cursor.visible = !cursorLocked;
     }
 
     private void SetTargetPosition()
@@ -68,7 +67,7 @@ public class PlayerController : MonoBehaviour
         var viewPortPos = camera.ScreenToViewportPoint(pos);
 
         var xPos = Mathf.Clamp(viewPortPos.x, 0, 1);
-        var yPos = Mathf.Clamp(viewPortPos.y, 0, 1);
+        var yPos = Mathf.Clamp(viewPortPos.y, 0, .333f) * 3f;
 
         var x = areaBottomLeft.x + areaSize.x * xPos;
         var z = areaBottomLeft.z + areaSize.z * yPos;
