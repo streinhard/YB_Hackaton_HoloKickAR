@@ -248,8 +248,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0172dc5471c124c4d9ce0e0612ccaeff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soccerField: {fileID: 0}
-  flagBottomLeft: {fileID: 0}
-  flagTopRight: {fileID: 0}
   puck: {fileID: 2564558408489361496}
   PuckSpeed: 10
