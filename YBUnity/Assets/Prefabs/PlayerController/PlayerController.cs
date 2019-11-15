@@ -8,9 +8,12 @@ public class PlayerController : MonoBehaviour
     public Transform soccerField;
     public Transform flagBottomLeft;
     public Transform flagTopRight;
+    public Rigidbody puck;
 
-    public Transform targetPos;
+    public float PuckSpeed = 5;
 
+    private Vector3 targetPos;
+    private Camera camera;
     private bool cursorLocked;
 
     private Vector3 areaBottomLeft;
@@ -18,13 +21,10 @@ public class PlayerController : MonoBehaviour
     private Vector3 areaSize;
     private float height;
 
-    private Camera camera;
-
     // Start is called before the first frame update
     void Start()
     {
         camera = Camera.main;
-
         SetPlayerArea();
     }
 
@@ -35,7 +35,8 @@ public class PlayerController : MonoBehaviour
 
         if (!cursorLocked) return;
 
-        SetTargetPosition();
+        UpdateTargetPosition();
+        MovePuck();
     }
 
     private void SetPlayerArea()
@@ -57,7 +58,7 @@ public class PlayerController : MonoBehaviour
         Cursor.visible = !cursorLocked;
     }
 
-    private void SetTargetPosition()
+    private void UpdateTargetPosition()
     {
         var pos = Input.mousePosition;
         var viewPortPos = camera.ScreenToViewportPoint(pos);
@@ -67,6 +68,16 @@ public class PlayerController : MonoBehaviour
 
         var x = areaBottomLeft.x + areaSize.x * xPos;
         var z = areaBottomLeft.z + areaSize.z * yPos;
-        targetPos.position = new Vector3(x, height, z);
+        targetPos = new Vector3(x, height, z);
+    }
+
+    private void MovePuck()
+    {
+        var puckPos = puck.position;
+        var distance = Vector3.Distance(targetPos, puckPos);
+        var speed = distance > 0.01 ? PuckSpeed : 0;
+        var direction = targetPos - puckPos;
+        puck.velocity = speed * direction;
+
     }
 }
