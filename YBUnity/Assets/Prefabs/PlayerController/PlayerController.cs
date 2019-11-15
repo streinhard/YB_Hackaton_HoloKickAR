@@ -9,7 +9,8 @@ public class PlayerController : MonoBehaviour
     public Transform flagBottomLeft;
     public Transform flagTopRight;
 
-    private Vector3 targetPos;
+    public Transform targetPos;
+
     private bool cursorLocked;
 
     private Vector3 areaBottomLeft;
@@ -22,7 +23,6 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        targetPos = transform.position;
         camera = Camera.main;
 
         SetPlayerArea();
@@ -36,7 +36,6 @@ public class PlayerController : MonoBehaviour
         if (!cursorLocked) return;
 
         SetTargetPosition();
-        MoveObject();
     }
 
     private void SetPlayerArea()
@@ -52,10 +51,10 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyUp(KeyCode.Escape)) {
             cursorLocked = false;
         } else if (Input.GetMouseButtonUp(0)) {
-            cursorLocked = true;
+            cursorLocked = !cursorLocked;
         }
 
-        //Cursor.visible = !cursorLocked;
+        Cursor.visible = !cursorLocked;
     }
 
     private void SetTargetPosition()
@@ -68,12 +67,6 @@ public class PlayerController : MonoBehaviour
 
         var x = areaBottomLeft.x + areaSize.x * xPos;
         var z = areaBottomLeft.z + areaSize.z * yPos;
-        targetPos = new Vector3(x, height, z);
-    }
-
-    private void MoveObject()
-    {
-        transform.LookAt(targetPos);
-        transform.position = Vector3.MoveTowards(transform.position, targetPos,  Time.deltaTime * 1.5f);
+        targetPos.position = new Vector3(x, height, z);
     }
 }
