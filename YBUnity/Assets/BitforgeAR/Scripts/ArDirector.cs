@@ -255,6 +255,9 @@ public class ArDirector : MonoBehaviour
 
         _arSessionController.AttachToReferencePoint(_lastArPlaneHit, _arItem.transform);
         _arItem.ShowFullObject();
+        
+        //FindObjectOfType<MatchmakerManager>().StartNetworking();
+        FindObjectOfType<DiscoveryManager>().StartNetworking();
     }
 
     private void OnShowingExit(GenericState toState)

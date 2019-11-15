@@ -17,7 +17,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4335526620332204546
 Transform:
   m_ObjectHideFlags: 0
@@ -30,7 +30,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4335526620618702255}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &4335526620332204549
 MonoBehaviour:
@@ -77,86 +77,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8caa4ae7bbefe40b4916f87aa74b1782, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _footballManager: {fileID: 4335526620516554598}
---- !u!1 &4335526620516554617
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 4335526620516554596}
-  - component: {fileID: 4335526620516554599}
-  - component: {fileID: 4335526620516554598}
-  m_Layer: 0
-  m_Name: FootballManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &4335526620516554596
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4335526620516554617}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -596.1277, y: -698.7399, z: 609.997}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 4335526620618702255}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4335526620516554599
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4335526620516554617}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f8258ea15b8f74c4889ce485d21cbbb1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_SceneId:
-    m_Value: 0
-  m_AssetId:
-    i0: 0
-    i1: 0
-    i2: 0
-    i3: 0
-    i4: 0
-    i5: 0
-    i6: 0
-    i7: 0
-    i8: 0
-    i9: 0
-    i10: 0
-    i11: 0
-    i12: 0
-    i13: 0
-    i14: 0
-    i15: 0
-  m_ServerOnly: 1
-  m_LocalPlayerAuthority: 0
---- !u!114 &4335526620516554598
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4335526620516554617}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c798752a39df74d1380170702b841e23, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  FootballPrefab: {fileID: 215476860190946197, guid: d0a1e0c7963404506a4a6e4e82fbab36,
-    type: 3}
+  FootballNetworkFieldPrefab: {fileID: 0}
+  PlayerPugFieldPrefab: {fileID: 0}
 --- !u!1 &4335526620618702254
 GameObject:
   m_ObjectHideFlags: 0
@@ -185,7 +107,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4335526621411933944}
-  - {fileID: 4335526620516554596}
   - {fileID: 4335526620332204546}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -201,7 +122,9 @@ GameObject:
   - component: {fileID: 4335526621411933944}
   - component: {fileID: 4335526621411933947}
   - component: {fileID: 4335526621411933946}
+  - component: {fileID: 1721948364000724798}
   - component: {fileID: 4335526621411933945}
+  - component: {fileID: 4335526621116151320}
   m_Layer: 0
   m_Name: NetworkManager
   m_TagString: Untagged
@@ -323,7 +246,7 @@ MonoBehaviour:
   showGUI: 1
   offsetX: 0
   offsetY: 0
---- !u!114 &4335526621411933945
+--- !u!114 &1721948364000724798
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -332,7 +255,51 @@ MonoBehaviour:
   m_GameObject: {fileID: 4335526621411933949}
   m_Enabled: 1
   m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21975038b2de347eb81037c16c7f5b91, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_BroadcastPort: 47777
+  m_BroadcastKey: 2222
+  m_BroadcastVersion: 1
+  m_BroadcastSubVersion: 1
+  m_BroadcastInterval: 1000
+  m_UseNetworkManager: 1
+  m_BroadcastData: HELLO2
+  m_ShowGUI: 1
+  m_OffsetX: 0
+  m_OffsetY: 140
+--- !u!114 &4335526621411933945
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4335526621411933949}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1cb3386be4a13431ab2083b690b59b8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  networkManager: {fileID: 4335526621411933947}
+  arDirector: {fileID: 0}
+--- !u!114 &4335526621116151320
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4335526621411933949}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bb4737dc5d484e948281d0890233d14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_BroadcastPort: 47777
+  m_BroadcastKey: 2222
+  m_BroadcastVersion: 1
+  m_BroadcastSubVersion: 1
+  m_BroadcastInterval: 1000
+  m_UseNetworkManager: 1
+  m_BroadcastData: HELLO
+  m_ShowGUI: 1
+  m_OffsetX: 0
+  m_OffsetY: 140

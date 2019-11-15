@@ -12,7 +12,7 @@ public class FootballManager : NetworkBehaviour
     
     public void SpawnFootball(Vector3 position)
     {
-        _football = Instantiate(FootballPrefab, position, Quaternion.identity);
+        _football = Instantiate(FootballPrefab);
         
         NetworkServer.Spawn(_football.gameObject);
     }

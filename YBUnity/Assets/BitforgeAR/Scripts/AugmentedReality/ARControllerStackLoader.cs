@@ -29,7 +29,7 @@ namespace AugmentedReality
 
             // unload an old stack if there is one
             UnloadControllerStack();
-            _controllerStack = Instantiate(Application.isEditor ? debugStackPrefab : arFoundationStackPrefab);
+            _controllerStack = Instantiate(!Application.isMobilePlatform ? debugStackPrefab : arFoundationStackPrefab);
 
             _arCamera = _controllerStack.GetComponentInChildren<IARSessionController>().ARCamera;
         }

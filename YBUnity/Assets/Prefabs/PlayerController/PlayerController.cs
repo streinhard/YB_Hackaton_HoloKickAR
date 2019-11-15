@@ -5,9 +5,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public Transform soccerField;
-    public Transform flagBottomLeft;
-    public Transform flagTopRight;
+    private SoccerField soccerField;
     public Rigidbody puck;
 
     public float PuckSpeed = 5;
@@ -24,6 +22,7 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        soccerField = FindObjectOfType<SoccerField>();
         camera = Camera.main;
         SetPlayerArea();
     }
@@ -41,10 +40,10 @@ public class PlayerController : MonoBehaviour
 
     private void SetPlayerArea()
     {
-        areaBottomLeft = flagBottomLeft.position;
-        areaTopRight = flagTopRight.position;
+        areaBottomLeft = soccerField.flagBottomLeft.position;
+        areaTopRight = soccerField.flagTopRight.position;
         areaSize = new Vector3(areaTopRight.x - areaBottomLeft.x, 0, areaTopRight.z - areaBottomLeft.z);
-        height = soccerField.position.y + 0.01f;
+        height = soccerField.transform.position.y + 0.01f;
     }
 
     private void CursorLockUpdate()

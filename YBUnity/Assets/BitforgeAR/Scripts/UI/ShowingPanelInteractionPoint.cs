@@ -29,8 +29,8 @@ namespace UI
             _camera = ARControllerStackLoader.GetArCamera();
             _cameraTransform = _camera.transform;
 
-            actionButton.OnClick.RemoveAllListeners();
-            actionButton.OnClick.AddListener(PoiActionClicked);
+            //actionButton.OnClick.RemoveAllListeners();
+            //actionButton.OnClick.AddListener(PoiActionClicked);
             info.text = string.Empty;
             info.color = new Color(1, 1, 1, 0);
             

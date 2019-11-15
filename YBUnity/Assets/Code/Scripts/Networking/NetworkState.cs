@@ -5,16 +5,25 @@ using UnityEngine.Networking;
 
 public class NetworkState : NetworkBehaviour
 {
-    [SerializeField]
-    private FootballManager _footballManager;
+    public NetworkField FootballNetworkFieldPrefab;
 
-    private int numberOfRegisteredPlayers;
+    public NetworkField PlayerPugFieldPrefab;
     
+    private int numberOfRegisteredPlayers;
+
+    private NetworkField _footballNetworkField;
+
     [Server]
     public void RegisterPlayer(PlayerIdentity identity)
     {
         numberOfRegisteredPlayers++;
-
-        if (numberOfRegisteredPlayers == 2) { _footballManager.SpawnFootball(Vector3.up * 5f); }
+        
+        if (numberOfRegisteredPlayers == 2) {
+            _footballNetworkField = Instantiate(FootballNetworkFieldPrefab);
+            NetworkServer.Spawn(_footballNetworkField.gameObject);
+        }
+        
+        GameObject newPlayerPug = Instantiate(PlayerPugFieldPrefab).gameObject;
+        NetworkServer.SpawnWithClientAuthority(newPlayerPug, identity.gameObject);
     }
 }

@@ -1,19 +1,36 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using AugmentedReality.Items;
 using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.Networking.Match;
 
 public class MatchmakerManager : MonoBehaviour
 {
-    public NetworkManager networkManager;
+    [SerializeField]
+    private ArDirector arDirector;
 
-    private bool _hasDoneMatchListRequest;
+    private NetworkManager networkManager;
     
+    private bool _hasDoneMatchListRequest;
+
+    private bool startedNetworking;
+    
+    public void StartNetworking()
+    {
+        startedNetworking = true;
+    }
+
+    void Awake()
+    {
+        networkManager = GetComponent<NetworkManager>();
+    }
 
     // Update is called once per frame
     void Update()
     {
+        if (!startedNetworking) return;
+        
         if (networkManager.matchMaker == null) { // didnt start matchmaker yet
             Debug.Log("startMatchmaker");
             networkManager.StartMatchMaker();
