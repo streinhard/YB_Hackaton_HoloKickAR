@@ -1,0 +1,27 @@
+fileFormatVersion: 2
+guid: c4b06252f7c54b56a423b70bfe180215
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - itemAnchor: {instanceID: 0}
+  - indicatorAnchor: {instanceID: 0}
+  - itemTransparentMaterial: {fileID: 2100000, guid: 0f29c5f81a6911a4b9b288f7af53c412,
+      type: 2}
+  - itemTransparentSkinnedMaterial: {fileID: 2100000, guid: ea45ac8b27dfccf48ab342e25caccc3f,
+      type: 2}
+  - playerStart: {instanceID: 0}
+  - triggerKeys: {instanceID: 0}
+  - triggerUhr: {instanceID: 0}
+  - triggerWebstuhl: {instanceID: 0}
+  - triggerRapport: {instanceID: 0}
+  - playerKeys: {instanceID: 0}
+  - playerUhr: {instanceID: 0}
+  - playerWebstuhl: {instanceID: 0}
+  - playerRapport: {instanceID: 0}
+  - playerAbschluss: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

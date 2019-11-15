@@ -1,0 +1,19 @@
+fileFormatVersion: 2
+guid: 4d99c5835c06c6547bbdba75509227f3
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - itemAnchor: {instanceID: 0}
+  - indicatorAnchor: {instanceID: 0}
+  - itemTransparentMaterial: {fileID: 2100000, guid: e334b56ba316740e2acec4e6f0639bf3,
+      type: 2}
+  - itemTransparentSkinnedMaterial: {fileID: 2100000, guid: ea45ac8b27dfccf48ab342e25caccc3f,
+      type: 2}
+  - partsAnchor: {instanceID: 0}
+  - deleteMaterial: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
