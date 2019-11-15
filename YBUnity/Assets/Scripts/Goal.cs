@@ -1,6 +1,8 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using DefaultNamespace;
+using TMPro;
 using UnityEngine;
 
 public class Goal : MonoBehaviour
@@ -26,6 +28,11 @@ public class Goal : MonoBehaviour
             if (GoalType == GoalType.Opponent)
             {
                 Debug.Log("GOAL AYYYY");
+                GameObject homeScoreBillboard = GameObject.Find("HomeScore");
+                
+                int homeScore = Int32.Parse(homeScoreBillboard.GetComponent<TextMeshProUGUI>().text);
+                homeScore++;
+                homeScoreBillboard.GetComponent<TextMeshProUGUI>().text = homeScore.ToString();
             }
             else if (GoalType == GoalType.Home)
             {
