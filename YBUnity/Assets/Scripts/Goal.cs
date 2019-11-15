@@ -10,7 +10,7 @@ public class Goal : MonoBehaviour
     public GoalType goalType;
 
     public GameObject soccerField;
-    
+
     // Start is called before the first frame update
     void Start()
     {
@@ -20,10 +20,10 @@ public class Goal : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
-    
-    
+
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("ball"))
@@ -34,7 +34,7 @@ public class Goal : MonoBehaviour
                 soccerField.GetComponent<InitializeSoccerField>().scoreHome += 1;
                 soccerField.GetComponent<InitializeSoccerField>().showHomeParticles();
                 Invoke(nameof(stopParticles), 8);
-                // 
+                //
             }
             else if (goalType == GoalType.Home)
             {

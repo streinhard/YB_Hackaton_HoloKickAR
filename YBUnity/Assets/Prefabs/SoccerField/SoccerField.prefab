@@ -795,6 +795,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2523552148906690321}
   - component: {fileID: 1377352448}
+  - component: {fileID: 341937652}
   m_Layer: 0
   m_Name: SoccerField
   m_TagString: soccerField
@@ -835,6 +836,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scoreHome: 0
   scoreOpponent: 0
+--- !u!114 &341937652
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2523552148906690320}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20963682c1f75418a9b6854f501dd566, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flagBottomLeft: {fileID: 1385737767010005874}
+  flagTopRight: {fileID: 5343121865749237967}
 --- !u!1 &2523552149162686205
 GameObject:
   m_ObjectHideFlags: 0
@@ -1997,11 +2012,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8243960449489195859}
     m_Modifications:
-    - target: {fileID: 3875530670900632165, guid: 1c276255399494f14aa43151728169e3,
-        type: 3}
-      propertyPath: m_Name
-      value: Billboard
-      objectReference: {fileID: 0}
     - target: {fileID: 3875530670900632164, guid: 1c276255399494f14aa43151728169e3,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2067,6 +2077,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.5627902
       objectReference: {fileID: 0}
+    - target: {fileID: 3875530670900632165, guid: 1c276255399494f14aa43151728169e3,
+        type: 3}
+      propertyPath: m_Name
+      value: Billboard
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1c276255399494f14aa43151728169e3, type: 3}
 --- !u!4 &2523552148818261055 stripped
@@ -2082,11 +2097,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8243960449489195859}
     m_Modifications:
-    - target: {fileID: 3875530670900632165, guid: 1c276255399494f14aa43151728169e3,
-        type: 3}
-      propertyPath: m_Name
-      value: Billboard (4)
-      objectReference: {fileID: 0}
     - target: {fileID: 3875530670900632164, guid: 1c276255399494f14aa43151728169e3,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2151,6 +2161,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.5627902
+      objectReference: {fileID: 0}
+    - target: {fileID: 3875530670900632165, guid: 1c276255399494f14aa43151728169e3,
+        type: 3}
+      propertyPath: m_Name
+      value: Billboard (4)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1c276255399494f14aa43151728169e3, type: 3}
@@ -2347,11 +2362,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8243960449489195859}
     m_Modifications:
-    - target: {fileID: 3875530670900632165, guid: 1c276255399494f14aa43151728169e3,
-        type: 3}
-      propertyPath: m_Name
-      value: Billboard (3)
-      objectReference: {fileID: 0}
     - target: {fileID: 3875530670900632164, guid: 1c276255399494f14aa43151728169e3,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2417,6 +2427,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.5627902
       objectReference: {fileID: 0}
+    - target: {fileID: 3875530670900632165, guid: 1c276255399494f14aa43151728169e3,
+        type: 3}
+      propertyPath: m_Name
+      value: Billboard (3)
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1c276255399494f14aa43151728169e3, type: 3}
 --- !u!4 &1125754125316245160 stripped
@@ -2432,11 +2447,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8243960449489195859}
     m_Modifications:
-    - target: {fileID: 3875530670900632165, guid: 1c276255399494f14aa43151728169e3,
-        type: 3}
-      propertyPath: m_Name
-      value: Billboard (5)
-      objectReference: {fileID: 0}
     - target: {fileID: 3875530670900632164, guid: 1c276255399494f14aa43151728169e3,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2502,6 +2512,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.5627902
       objectReference: {fileID: 0}
+    - target: {fileID: 3875530670900632165, guid: 1c276255399494f14aa43151728169e3,
+        type: 3}
+      propertyPath: m_Name
+      value: Billboard (5)
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1c276255399494f14aa43151728169e3, type: 3}
 --- !u!4 &8467868811049486736 stripped
@@ -2517,11 +2532,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8243960449489195859}
     m_Modifications:
-    - target: {fileID: 3875530670900632165, guid: 1c276255399494f14aa43151728169e3,
-        type: 3}
-      propertyPath: m_Name
-      value: Billboard (2)
-      objectReference: {fileID: 0}
     - target: {fileID: 3875530670900632164, guid: 1c276255399494f14aa43151728169e3,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2587,6 +2597,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.5627902
       objectReference: {fileID: 0}
+    - target: {fileID: 3875530670900632165, guid: 1c276255399494f14aa43151728169e3,
+        type: 3}
+      propertyPath: m_Name
+      value: Billboard (2)
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1c276255399494f14aa43151728169e3, type: 3}
 --- !u!4 &8575610810904838487 stripped
@@ -2602,11 +2617,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8243960449489195859}
     m_Modifications:
-    - target: {fileID: 3875530670900632165, guid: 1c276255399494f14aa43151728169e3,
-        type: 3}
-      propertyPath: m_Name
-      value: Billboard (1)
-      objectReference: {fileID: 0}
     - target: {fileID: 3875530670900632164, guid: 1c276255399494f14aa43151728169e3,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2671,6 +2681,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.5627902
+      objectReference: {fileID: 0}
+    - target: {fileID: 3875530670900632165, guid: 1c276255399494f14aa43151728169e3,
+        type: 3}
+      propertyPath: m_Name
+      value: Billboard (1)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1c276255399494f14aa43151728169e3, type: 3}
