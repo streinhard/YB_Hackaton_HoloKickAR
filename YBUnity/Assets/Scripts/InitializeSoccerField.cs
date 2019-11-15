@@ -22,15 +22,12 @@ public class InitializeSoccerField : MonoBehaviour
 
     public void showHomeParticles()
     {
-        Debug.Log("Show Home Particles");
-        Debug.Log(scoreHome);
         particlesHome.SetActive(true);
         particlesOpponent.SetActive(true);
     }
     
     public void hideHomeParticles()
     {
-        Debug.Log("Hide Home Particles");
         particlesHome.SetActive(false);
         particlesOpponent.SetActive(false);
     }
