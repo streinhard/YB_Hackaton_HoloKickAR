@@ -5,15 +5,12 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    // public float speed = 10f;
-    public Vector3 targetPos;
-    public float speed;
-
-    private bool cursorLocked;
-
     public Transform soccerField;
     public Transform flagBottomLeft;
     public Transform flagTopRight;
+
+    private Vector3 targetPos;
+    private bool cursorLocked;
 
     private Vector3 areaBottomLeft;
     private Vector3 areaTopRight;
@@ -58,7 +55,7 @@ public class PlayerController : MonoBehaviour
             cursorLocked = true;
         }
 
-        Cursor.visible = !cursorLocked;
+        //Cursor.visible = !cursorLocked;
     }
 
     private void SetTargetPosition()
@@ -67,7 +64,7 @@ public class PlayerController : MonoBehaviour
         var viewPortPos = camera.ScreenToViewportPoint(pos);
 
         var xPos = Mathf.Clamp(viewPortPos.x, 0, 1);
-        var yPos = Mathf.Clamp(viewPortPos.y, 0, .333f) * 3f;
+        var yPos = Mathf.Clamp(viewPortPos.y, 0, .25f) * 4f;
 
         var x = areaBottomLeft.x + areaSize.x * xPos;
         var z = areaBottomLeft.z + areaSize.z * yPos;
@@ -77,6 +74,6 @@ public class PlayerController : MonoBehaviour
     private void MoveObject()
     {
         transform.LookAt(targetPos);
-        transform.position = Vector3.MoveTowards(transform.position, targetPos, speed * Time.deltaTime);
+        transform.position = Vector3.MoveTowards(transform.position, targetPos,  Time.deltaTime * 1.5f);
     }
 }

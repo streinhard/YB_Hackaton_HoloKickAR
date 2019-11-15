@@ -759,10 +759,10 @@ PlayerSettings:
   facebookXfbml: 0
   facebookFrictionlessRequests: 1
   apiCompatibilityLevel: 6
-  cloudProjectId: 0b06965a-5c9b-4237-9fdc-ec9f9828d5e0
+  cloudProjectId: f9abe0da-7f12-4ff0-b856-d35dfddc9c0f
   framebufferDepthMemorylessMode: 0
   projectName: HoloKickAR
-  organizationId: unity_2ole01xw7_xc9w
+  organizationId: bitforge-ag
   cloudEnabled: 0
   enableNativePlatformBackendsForNewInputSystem: 0
   disableOldInputManagerSupport: 0
