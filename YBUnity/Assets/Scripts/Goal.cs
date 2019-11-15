@@ -7,12 +7,14 @@ using UnityEngine;
 
 public class Goal : MonoBehaviour
 {
-    public GoalType GoalType;
-     
+    public GoalType goalType;
+
+    public GameObject soccerField;
+    
     // Start is called before the first frame update
     void Start()
     {
-        
+        soccerField = GameObject.FindWithTag("soccerField");
     }
 
     // Update is called once per frame
@@ -21,18 +23,28 @@ public class Goal : MonoBehaviour
         
     }
     
+    
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("ball"))
         {
-            if (GoalType == GoalType.Opponent)
+            if (goalType == GoalType.Opponent)
             {
                 Debug.Log("GOAL AYYYY");
+                soccerField.GetComponent<InitializeSoccerField>().scoreHome += 1;
+                soccerField.GetComponent<InitializeSoccerField>().showHomeParticles();
+                Invoke(nameof(stopParticles), 8);
+                // 
             }
-            else if (GoalType == GoalType.Home)
+            else if (goalType == GoalType.Home)
             {
                 Debug.Log("Neeeein, eigentor!");
             }
         }
+    }
+
+    private void stopParticles()
+    {
+        soccerField.GetComponent<InitializeSoccerField>().hideHomeParticles();
     }
 }
