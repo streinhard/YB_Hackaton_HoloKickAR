@@ -9,19 +9,9 @@ public class PlayerController : MonoBehaviour
     public bool isMoving;
     const int MOUSE = 0;
 
-    // Lerpyderpy stuff
-    // Transforms to act as start and end markers for the journey.
-    public Transform startMarker;
-    public Transform endMarker;
+    public float speed;
 
-    // Movement speed in units per second.
-    public float speed = 1.0F;
-
-    // Time when the movement started.
-    private float startTime;
-
-    // Total distance between the markers.
-    private float journeyLength;
+    private Camera camera;
 
     // Start is called before the first frame update
     void Start()
@@ -29,27 +19,12 @@ public class PlayerController : MonoBehaviour
         targetPos = transform.position;
         isMoving = false;
 
-        Cursor.visible = false;
-
-        // Keep a note of the time the movement started.
-        startTime = Time.time;
-
-        // Calculate the journey length.
-        journeyLength = Vector3.Distance(startMarker.position, endMarker.position);
+        camera = Camera.main;
     }
 
     // Update is called once per frame
     void Update()
     {
-        // Distance moved equals elapsed time times speed..
-        float distCovered = (Time.time - startTime) * speed;
-
-        // Fraction of journey completed equals current distance divided by total distance.
-        float fractionOfJourney = distCovered / journeyLength;
-
-        // Set our position as a fraction of the distance between the markers.
-        transform.position = Vector3.Lerp(startMarker.position, endMarker.position, fractionOfJourney);
-
         if (Input.GetKeyDown("1"))
         {
             Cursor.lockState = CursorLockMode.Locked;
@@ -63,7 +38,7 @@ public class PlayerController : MonoBehaviour
         }
 
         // Code to set position to mouse position
-        SetTarggetPosition();
+        SetTargetPosition();
 
         if (isMoving)
         {
@@ -71,25 +46,25 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    void SetTarggetPosition()
+    void SetTargetPosition()
     {
-        Plane plane = new Plane(Vector3.up,transform.position);
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        float point = 0f;
+        var plane = new Plane(Vector3.up,transform.position);
+        var ray = camera.ScreenPointToRay(Input.mousePosition);
 
-        if(plane.Raycast(ray, out point))
+        if (plane.Raycast(ray, out var point)) {
             targetPos = ray.GetPoint(point);
+        }
 
         isMoving = true;
     }
+
     void MoveObject()
     {
         transform.LookAt(targetPos);
         transform.position = Vector3.MoveTowards(transform.position, targetPos, speed * Time.deltaTime);
 
-        if (transform.position == targetPos)
+        if (transform.position == targetPos) {
             isMoving = false;
-        Debug.DrawLine(transform.position,targetPos,Color.red);
-
+        }
     }
 }
