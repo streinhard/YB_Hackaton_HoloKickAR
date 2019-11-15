@@ -2319,9 +2319,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2593658077947993241, guid: 105dd3d4b680942f293445f5c85c3c20,
         type: 3}
+      propertyPath: goalType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2593658077947993241, guid: 105dd3d4b680942f293445f5c85c3c20,
+        type: 3}
       propertyPath: soccerField
       value: 
       objectReference: {fileID: 2523552148906690320}
+    - target: {fileID: 70917438715346643, guid: 105dd3d4b680942f293445f5c85c3c20,
+        type: 3}
+      propertyPath: m_TagString
+      value: particlesOpponent
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 105dd3d4b680942f293445f5c85c3c20, type: 3}
 --- !u!4 &5786980022894929813 stripped
