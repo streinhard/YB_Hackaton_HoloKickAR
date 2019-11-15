@@ -69,6 +69,12 @@ public class MatchmakerManager : MonoBehaviour
                 );
             }
         }
-        
     }
+    
+    void OnApplicationQuit()
+    {
+        Debug.Log("Closing Match");
+        networkManager.StopHost();
+    }
+    
 }
