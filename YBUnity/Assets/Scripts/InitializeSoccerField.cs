@@ -24,6 +24,7 @@ public class InitializeSoccerField : MonoBehaviour
     {
         particlesHome.SetActive(true);
         particlesOpponent.SetActive(true);
+        gameObject.GetComponent<AudioSource>().PlayOneShot(gameObject.GetComponent<AudioSource>().clip);
     }
     
     public void hideHomeParticles()
