@@ -33,7 +33,7 @@ public class Goal : MonoBehaviour
                 Debug.Log("GOAL AYYYY");
                 soccerField.GetComponent<SoccerField>().scoreHome += 1;
                 soccerField.GetComponent<SoccerField>().showHomeParticles();
-                Invoke(nameof(stopParticles), 8);
+                Invoke(nameof(stopParticles), 5);
                 //
             }
             else if (goalType == GoalType.Home)
