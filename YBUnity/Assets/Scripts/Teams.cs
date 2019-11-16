@@ -2,6 +2,6 @@ namespace DefaultNamespace
 {
     public enum Team
     {
-        YB, FCB, FCZ
+        NOTHING, YB, FCB, FCZ
     }
 }
