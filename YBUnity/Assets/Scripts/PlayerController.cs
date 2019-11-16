@@ -21,6 +21,8 @@ public class PlayerController : MonoBehaviour
     private Vector3 areaSize;
     private float height;
 
+    private NetworkBehaviour _networkBehaviour;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -30,6 +32,10 @@ public class PlayerController : MonoBehaviour
         FindArCamera();
 
         SetPlayerArea();
+
+        if (transform.parent != null) {
+            _networkBehaviour = transform.parent.GetComponent<NetworkBehaviour>();
+        }
     }
 
     private void FindArCamera()
@@ -46,8 +52,7 @@ public class PlayerController : MonoBehaviour
     {
         ResetHeight();
 
-        var networkBehaviour = transform.parent.GetComponent<NetworkBehaviour>();
-        if (networkBehaviour != null && !networkBehaviour.hasAuthority) return;
+        if (_networkBehaviour != null && !_networkBehaviour.hasAuthority) return;
 
         CursorLockUpdate();
 
