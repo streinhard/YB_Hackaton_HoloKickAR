@@ -114,8 +114,8 @@ public class PlayerController : MonoBehaviour
         var speed = distance > 0.01 ? PuckSpeed : 0;
         var direction = targetPos - puckPos;
         direction.y = 0;
-        //puck.velocity = speed * direction;
-        puck.transform.position = targetPos;
+        puck.velocity = speed * direction;
+        //puck.transform.position = targetPos;
 
     }
 }
