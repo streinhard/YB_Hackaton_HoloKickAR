@@ -45,9 +45,10 @@ public class PlayerController : MonoBehaviour
     private void Update()
     {
         ResetHeight();
-        
-        if (!transform.parent.GetComponent<NetworkBehaviour>().hasAuthority) { return; }
-        
+
+        var networkBehaviour = transform.parent.GetComponent<NetworkBehaviour>();
+        if (networkBehaviour != null && !networkBehaviour.hasAuthority) return;
+
         CursorLockUpdate();
 
         if (!cursorLocked) return;
