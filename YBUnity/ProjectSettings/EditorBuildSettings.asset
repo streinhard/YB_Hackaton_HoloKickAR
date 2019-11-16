@@ -5,16 +5,16 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/StartScene.unity
     guid: a79f98997741c4c44bcd483cb592d507
   - enabled: 1
     path: Assets/Scenes/ARScene.unity
     guid: d1c3109bdb54ad54c8a2b2838528e640
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Matchmaking.unity
     guid: 6517f4f49a32c4b498700fd5982f5874
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/MakeMechanicsGreatAgain.unity
     guid: 25387d961d2f3490da7930a4c857355f
   m_configObjects:

@@ -11,8 +11,8 @@ public class NetworkState : NetworkBehaviour
     
     private int numberOfRegisteredPlayers;
 
-    private int serverScore;
-    private int clientScore;
+    [SyncVar]public int serverScore;
+    [SyncVar]public int clientScore;
     
     private NetworkField _footballNetworkField;
 
@@ -28,5 +28,15 @@ public class NetworkState : NetworkBehaviour
         
         GameObject newPlayerPug = Instantiate(PlayerPugFieldPrefab).gameObject;
         NetworkServer.SpawnWithClientAuthority(newPlayerPug, identity.gameObject);
+    }
+
+    [Server]
+    public void RegisterGoal(bool forServer)
+    {
+        Debug.Log("goal for " + forServer);
+        
+        if (forServer) {
+            serverScore++;
+        } else { clientScore++; }
     }
 }

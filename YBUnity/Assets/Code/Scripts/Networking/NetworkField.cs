@@ -50,7 +50,6 @@ public class NetworkField : NetworkBehaviour
         
         var playerController = GetComponentInChildren<PlayerController>();
         if (playerController != null) {
-            Debug.Log("changeStuff");
             playerController.invertedSides = false;
             playerController.UpdatePlayerArea();
             
