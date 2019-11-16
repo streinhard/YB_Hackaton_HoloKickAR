@@ -57,18 +57,31 @@ public class NetworkField : NetworkBehaviour
             
             setRotation = transform.localRotation;
         }
-        
-        
+
         base.OnStartAuthority();
     }
 
     void Update()
     {
-        if (timeSinceCreation < 1f) {
             transform.localPosition = Vector3.zero;
             transform.localRotation = setRotation;
             
             timeSinceCreation += Time.deltaTime;
-        }
+    }
+    
+    void FixedUpdate()
+    {
+        transform.localPosition = Vector3.zero;
+        transform.localRotation = setRotation;
+            
+        timeSinceCreation += Time.deltaTime;
+    }
+    
+    void LateUpdate()
+    {
+        transform.localPosition = Vector3.zero;
+        transform.localRotation = setRotation;
+            
+        timeSinceCreation += Time.deltaTime;
     }
 }
