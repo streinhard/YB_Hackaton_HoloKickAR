@@ -71,10 +71,9 @@ public class PlayerController : MonoBehaviour
         areaBottomLeft = invertedSides ? soccerField.flagTopRight.position : soccerField.flagBottomLeft.position;
         areaTopRight = invertedSides ? soccerField.flagBottomLeft.position : soccerField.flagTopRight.position;
         areaSize = areaTopRight - areaBottomLeft;
-        areaSize.z = areaSize.z / 2;
+        //areaSize.z = areaSize.z / 2;
         height = soccerField.transform.position.y;
     }
-
     private void CursorLockUpdate()
     {
         if (Input.GetKeyUp(KeyCode.Escape)) {
@@ -101,6 +100,13 @@ public class PlayerController : MonoBehaviour
 
         var x = areaBottomLeft.x + areaSize.x * xPos;
         var z = areaBottomLeft.z + areaSize.z * yPos;
+
+        var bottomLeftPos = soccerField.flagBottomLeft.position;
+        var forward = (soccerField.flagTopLeft.position - bottomLeftPos).normalized;
+        var right = (soccerField.flagBottomRight.position - bottomLeftPos).normalized;
+
+        // TODO: Do something smart here, brain is disfunctional
+
         targetPos = new Vector3(x, height, z);
     }
 
@@ -111,7 +117,8 @@ public class PlayerController : MonoBehaviour
         var speed = distance > 0.01 ? PuckSpeed : 0;
         var direction = targetPos - puckPos;
         direction.y = 0;
-        puck.velocity = speed * direction;
+        //puck.velocity = speed * direction;
+        puck.transform.position = targetPos;
 
     }
 }

@@ -5,9 +5,10 @@ using UnityEngine;
 public class SoccerField : MonoBehaviour
 {
     public Transform flagBottomLeft;
-    
+    public Transform flagTopLeft;
     public Transform flagTopRight;
-    
+    public Transform flagBottomRight;
+
     public GameObject particlesHome;
     public GameObject particlesOpponent;
 
@@ -19,7 +20,7 @@ public class SoccerField : MonoBehaviour
     {
         // particlesHome = GameObject.FindWithTag("particlesHome");
         // particlesOpponent = GameObject.FindWithTag("particlesOpponent");
-        
+
         particlesHome.SetActive(false);
         particlesOpponent.SetActive(false);
     }
@@ -30,7 +31,7 @@ public class SoccerField : MonoBehaviour
         particlesOpponent.SetActive(true);
         gameObject.GetComponent<AudioSource>().PlayOneShot(gameObject.GetComponent<AudioSource>().clip);
     }
-    
+
     public void hideHomeParticles()
     {
         particlesHome.SetActive(false);
