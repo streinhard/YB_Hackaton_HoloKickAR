@@ -19,13 +19,12 @@ public class PlayerController : MonoBehaviour
     private Vector3 areaBottomLeft;
     private Vector3 areaTopRight;
     private Vector3 areaSize;
-    private float height;
 
     private NetworkBehaviour _networkBehaviour;
 
     [HideInInspector]
     public bool invertedSides;
-    
+
     // Start is called before the first frame update
     void Start()
     {
@@ -67,12 +66,11 @@ public class PlayerController : MonoBehaviour
     public void UpdatePlayerArea()
     {
         soccerField = FindObjectOfType<SoccerField>();
-        
+
         areaBottomLeft = invertedSides ? soccerField.flagTopRight.position : soccerField.flagBottomLeft.position;
         areaTopRight = invertedSides ? soccerField.flagBottomLeft.position : soccerField.flagTopRight.position;
         areaSize = areaTopRight - areaBottomLeft;
         //areaSize.z = areaSize.z / 2;
-        height = soccerField.transform.position.y;
     }
     private void CursorLockUpdate()
     {
@@ -102,9 +100,8 @@ public class PlayerController : MonoBehaviour
         Vector3 worldY = Vector3.Project(areaSize, soccerField.transform.forward);
 
         Vector3 origin = areaBottomLeft;
-        
+
         targetPos = origin + xPos * worldX + yPos * worldY;
-        targetPos.y = height;
     }
 
     private void MovePuck()
@@ -115,6 +112,8 @@ public class PlayerController : MonoBehaviour
         var direction = targetPos - puckPos;
         direction.y = 0;
         puck.velocity = speed * direction;
+
+        puckPos.y = soccerField.transform.position.y;
         //puck.transform.position = targetPos;
 
     }

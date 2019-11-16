@@ -202,7 +202,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 116
+  m_Constraints: 112
   m_CollisionDetection: 3
 --- !u!1 &2564558407404470845
 GameObject:
@@ -250,3 +250,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   puck: {fileID: 2564558408489361496}
   PuckSpeed: 10
+  invertedSides: 0
