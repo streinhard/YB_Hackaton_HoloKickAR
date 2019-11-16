@@ -24,7 +24,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         soccerField = FindObjectOfType<SoccerField>();
-        
+
         camera = Camera.main;
         FindArCamera();
 
@@ -55,7 +55,8 @@ public class PlayerController : MonoBehaviour
     {
         areaBottomLeft = soccerField.flagBottomLeft.position;
         areaTopRight = soccerField.flagTopRight.position;
-        areaSize = new Vector3(areaTopRight.x - areaBottomLeft.x, 0, areaTopRight.z - areaBottomLeft.z);
+        areaSize = areaTopRight - areaBottomLeft;
+        areaSize.z = areaSize.z / 2;
         height = soccerField.transform.position.y + 0.01f;
     }
 
