@@ -31,7 +31,7 @@ public class PlayerController : MonoBehaviour
         camera = Camera.main;
         FindArCamera();
 
-        SetPlayerArea();
+        UpdatePlayerArea();
 
         if (transform.parent != null) {
             _networkBehaviour = transform.parent.GetComponent<NetworkBehaviour>();
@@ -50,8 +50,6 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        ResetHeight();
-
         if (_networkBehaviour != null && !_networkBehaviour.hasAuthority) return;
 
         CursorLockUpdate();
@@ -62,20 +60,14 @@ public class PlayerController : MonoBehaviour
         MovePuck();
     }
 
-    private void ResetHeight() // networking fix
-    {
-        Vector3 puckPos = puck.position;
-        puckPos.y = height;
-        puck.MovePosition(puckPos);
-    }
 
-    private void SetPlayerArea()
+    private void UpdatePlayerArea()
     {
         areaBottomLeft = soccerField.flagBottomLeft.position;
         areaTopRight = soccerField.flagTopRight.position;
         areaSize = areaTopRight - areaBottomLeft;
         areaSize.z = areaSize.z / 2;
-        height = soccerField.transform.position.y + 0.01f;
+        height = soccerField.transform.position.y;
     }
 
     private void CursorLockUpdate()
@@ -113,6 +105,7 @@ public class PlayerController : MonoBehaviour
         var distance = Vector3.Distance(targetPos, puckPos);
         var speed = distance > 0.01 ? PuckSpeed : 0;
         var direction = targetPos - puckPos;
+        direction.y = 0;
         puck.velocity = speed * direction;
 
     }
