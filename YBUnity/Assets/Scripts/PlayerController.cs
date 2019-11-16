@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using AugmentedReality;
 using UnityEngine;
+using UnityEngine.Networking;
 
 public class PlayerController : MonoBehaviour
 {
@@ -43,12 +44,23 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
+        ResetHeight();
+        
+        if (!transform.parent.GetComponent<NetworkBehaviour>().hasAuthority) { return; }
+        
         CursorLockUpdate();
 
         if (!cursorLocked) return;
 
         UpdateTargetPosition();
         MovePuck();
+    }
+
+    private void ResetHeight() // networking fix
+    {
+        Vector3 puckPos = puck.position;
+        puckPos.y = height;
+        puck.MovePosition(puckPos);
     }
 
     private void SetPlayerArea()
