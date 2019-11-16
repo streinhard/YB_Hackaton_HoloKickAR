@@ -31,8 +31,8 @@ public class Goal : MonoBehaviour
             if (goalType == GoalType.Opponent)
             {
                 Debug.Log("GOAL AYYYY");
-                soccerField.GetComponent<InitializeSoccerField>().scoreHome += 1;
-                soccerField.GetComponent<InitializeSoccerField>().showHomeParticles();
+                soccerField.GetComponent<SoccerField>().scoreHome += 1;
+                soccerField.GetComponent<SoccerField>().showHomeParticles();
                 Invoke(nameof(stopParticles), 8);
                 //
             }
@@ -45,6 +45,6 @@ public class Goal : MonoBehaviour
 
     private void stopParticles()
     {
-        soccerField.GetComponent<InitializeSoccerField>().hideHomeParticles();
+        soccerField.GetComponent<SoccerField>().hideHomeParticles();
     }
 }
