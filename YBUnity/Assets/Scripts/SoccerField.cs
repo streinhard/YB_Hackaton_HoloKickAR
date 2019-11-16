@@ -8,8 +8,8 @@ public class SoccerField : MonoBehaviour
     
     public Transform flagTopRight;
     
-    private GameObject particlesHome;
-    private GameObject particlesOpponent;
+    public GameObject particlesHome;
+    public GameObject particlesOpponent;
 
     public int scoreHome;
     public int scoreOpponent;
@@ -17,8 +17,8 @@ public class SoccerField : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        particlesHome = GameObject.FindWithTag("particlesHome");
-        particlesOpponent = GameObject.FindWithTag("particlesOpponent");
+        // particlesHome = GameObject.FindWithTag("particlesHome");
+        // particlesOpponent = GameObject.FindWithTag("particlesOpponent");
         
         particlesHome.SetActive(false);
         particlesOpponent.SetActive(false);
