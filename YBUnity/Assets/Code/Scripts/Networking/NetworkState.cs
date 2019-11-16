@@ -8,7 +8,7 @@ public class NetworkState : NetworkBehaviour
     public NetworkField FootballNetworkFieldPrefab;
 
     public NetworkField PlayerPugFieldPrefab;
-    
+
     private int numberOfRegisteredPlayers;
 
     private NetworkField _footballNetworkField;
@@ -17,12 +17,12 @@ public class NetworkState : NetworkBehaviour
     public void RegisterPlayer(PlayerIdentity identity)
     {
         numberOfRegisteredPlayers++;
-        
+
         if (numberOfRegisteredPlayers == 2) {
             _footballNetworkField = Instantiate(FootballNetworkFieldPrefab);
             NetworkServer.Spawn(_footballNetworkField.gameObject);
         }
-        
+
         GameObject newPlayerPug = Instantiate(PlayerPugFieldPrefab).gameObject;
         NetworkServer.SpawnWithClientAuthority(newPlayerPug, identity.gameObject);
     }

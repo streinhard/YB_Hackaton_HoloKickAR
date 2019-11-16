@@ -75,7 +75,7 @@ public class ArDirector : MonoBehaviour
 
         showingState.OnEnterAction = OnShowingEnter;
         showingState.OnExitAction = OnShowingExit;
-        
+
     }
 
     private void Start()
@@ -97,10 +97,10 @@ public class ArDirector : MonoBehaviour
         _placingPanel.OnScaleClick.AddListener(OnScaleClicked);
         _placingPanel.OnCloseClick.RemoveAllListeners();
         _placingPanel.OnCloseClick.AddListener(OnCloseClicked);
-        
+
         _showingPanel.OnCloseClick.AddListener(OnCloseClicked);
         _showingPanel.OnResetClick.AddListener(OnResetClicked);
-        
+
 
         // init state machine into checking availability
         _stateMachine.RequestStateChange(STATE_CHECKING_AVAILABILITY);
@@ -224,7 +224,7 @@ public class ArDirector : MonoBehaviour
     private void OnPlacingPossibleEnter(GenericState fromState)
     {
         Debug.Log("=> OnpLacingPossibleEnter");
-        
+
         _arItem.ShowIndicator();
         _placingPanel.ShowButtons();
     }
@@ -232,7 +232,7 @@ public class ArDirector : MonoBehaviour
     private void OnPlacingPossibleExit(GenericState toState)
     {
         Debug.Log("=> OnPlacingPossibleExit");
-        
+
         switch (toState.Id) {
             case STATE_PLACING:
 
@@ -255,7 +255,7 @@ public class ArDirector : MonoBehaviour
 
         _arSessionController.AttachToReferencePoint(_lastArPlaneHit, _arItem.transform);
         _arItem.ShowFullObject();
-        
+
         FindObjectOfType<MatchmakerManager>().StartNetworking();
         //FindObjectOfType<DiscoveryManager>().StartNetworking();
     }
@@ -298,13 +298,13 @@ public class ArDirector : MonoBehaviour
     private void OnCloseClicked()
     {
         //SceneManager.UnloadSceneAsync("ARScene").completed += FindObjectOfType<MenuController>().OnARSceneClosed;
-        
+
         _scanningPanel.transform.parent.gameObject.SetActive(false);
-        
+
         //var mainController = FindObjectOfType<MainController>();
         //if (mainController != null) { mainController.ShutdownArScene(); }
     }
-    
+
     #endregion
 
     private void ProcessTouchInput(GenericPanel actualPanel)

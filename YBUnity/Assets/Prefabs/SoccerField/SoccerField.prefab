@@ -927,7 +927,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   flagBottomLeft: {fileID: 5343121865749237967}
+  flagTopLeft: {fileID: 8848831389839069804}
   flagTopRight: {fileID: 1385737767010005874}
+  flagBottomRight: {fileID: 4880176560721041423}
   particlesHome: {fileID: 459323397}
   particlesOpponent: {fileID: 3904825567534916439}
   scoreHome: 0
@@ -2084,11 +2086,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2593658077947993241, guid: 105dd3d4b680942f293445f5c85c3c20,
-        type: 3}
-      propertyPath: soccerField
-      value: 
-      objectReference: {fileID: 2523552148906690320}
     - target: {fileID: 2593658078448129110, guid: 105dd3d4b680942f293445f5c85c3c20,
         type: 3}
       propertyPath: m_LocalPosition.y
@@ -2104,6 +2101,11 @@ PrefabInstance:
       propertyPath: m_Center.z
       value: 0.09397763
       objectReference: {fileID: 0}
+    - target: {fileID: 2593658077947993241, guid: 105dd3d4b680942f293445f5c85c3c20,
+        type: 3}
+      propertyPath: soccerField
+      value: 
+      objectReference: {fileID: 2523552148906690320}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 105dd3d4b680942f293445f5c85c3c20, type: 3}
 --- !u!4 &7385834676646558919 stripped
@@ -2625,16 +2627,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2593658077947993241, guid: 105dd3d4b680942f293445f5c85c3c20,
-        type: 3}
-      propertyPath: goalType
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2593658077947993241, guid: 105dd3d4b680942f293445f5c85c3c20,
-        type: 3}
-      propertyPath: soccerField
-      value: 
-      objectReference: {fileID: 2523552148906690320}
     - target: {fileID: 1074932353528719657, guid: 105dd3d4b680942f293445f5c85c3c20,
         type: 3}
       propertyPath: m_LocalPosition.y
@@ -2660,6 +2652,16 @@ PrefabInstance:
       propertyPath: m_Center.z
       value: 0.12764135
       objectReference: {fileID: 0}
+    - target: {fileID: 2593658077947993241, guid: 105dd3d4b680942f293445f5c85c3c20,
+        type: 3}
+      propertyPath: goalType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2593658077947993241, guid: 105dd3d4b680942f293445f5c85c3c20,
+        type: 3}
+      propertyPath: soccerField
+      value: 
+      objectReference: {fileID: 2523552148906690320}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 105dd3d4b680942f293445f5c85c3c20, type: 3}
 --- !u!4 &5786980022894929813 stripped
