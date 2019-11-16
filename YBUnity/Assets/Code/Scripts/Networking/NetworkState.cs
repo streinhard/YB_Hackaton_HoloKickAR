@@ -11,6 +11,9 @@ public class NetworkState : NetworkBehaviour
 
     private int numberOfRegisteredPlayers;
 
+    private int serverScore;
+    private int clientScore;
+    
     private NetworkField _footballNetworkField;
 
     [Server]

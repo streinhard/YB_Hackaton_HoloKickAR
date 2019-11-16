@@ -23,6 +23,9 @@ public class PlayerController : MonoBehaviour
 
     private NetworkBehaviour _networkBehaviour;
 
+    [HideInInspector]
+    public bool invertedSides;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -63,8 +66,10 @@ public class PlayerController : MonoBehaviour
 
     public void UpdatePlayerArea()
     {
-        areaBottomLeft = soccerField.flagBottomLeft.position;
-        areaTopRight = soccerField.flagTopRight.position;
+        soccerField = FindObjectOfType<SoccerField>();
+        
+        areaBottomLeft = invertedSides ? soccerField.flagTopRight.position : soccerField.flagBottomLeft.position;
+        areaTopRight = invertedSides ? soccerField.flagBottomLeft.position : soccerField.flagTopRight.position;
         areaSize = areaTopRight - areaBottomLeft;
         //areaSize.z = areaSize.z / 2;
         height = soccerField.transform.position.y;
