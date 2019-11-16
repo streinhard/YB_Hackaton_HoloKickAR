@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using AugmentedReality;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -23,8 +24,20 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         soccerField = FindObjectOfType<SoccerField>();
+        
         camera = Camera.main;
+        FindArCamera();
+
         SetPlayerArea();
+    }
+
+    private void FindArCamera()
+    {
+        object foundationConteroller = FindObjectOfType<ARFoundationSessionController>();
+        object debugController = FindObjectOfType<ARDebugSessionController>();
+        var arSessionController = foundationConteroller as IARSessionController;
+        arSessionController = arSessionController ?? debugController as IARSessionController;
+        if (arSessionController != null) { camera = arSessionController.ARCamera; }
     }
 
     // Update is called once per frame
@@ -59,7 +72,12 @@ public class PlayerController : MonoBehaviour
 
     private void UpdateTargetPosition()
     {
-        var pos = Input.mousePosition;
+        Vector2 pos;
+        if (Input.touchCount > 0) {
+            pos = Input.GetTouch(0).position;
+        } else {
+            pos = Input.mousePosition;
+        }
         var viewPortPos = camera.ScreenToViewportPoint(pos);
 
         var xPos = Mathf.Clamp(viewPortPos.x, 0, 1);
