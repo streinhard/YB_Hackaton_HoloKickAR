@@ -96,18 +96,15 @@ public class PlayerController : MonoBehaviour
         var viewPortPos = camera.ScreenToViewportPoint(pos);
 
         var xPos = Mathf.Clamp(viewPortPos.x, 0, 1);
-        var yPos = Mathf.Clamp(viewPortPos.y, 0, .25f) * 4f;
+        var yPos = Mathf.Clamp(viewPortPos.y, 0, .25f) * 2f;
 
-        var x = areaBottomLeft.x + areaSize.x * xPos;
-        var z = areaBottomLeft.z + areaSize.z * yPos;
+        Vector3 worldX = Vector3.Project(areaSize, soccerField.transform.right);
+        Vector3 worldY = Vector3.Project(areaSize, soccerField.transform.forward);
 
-        var bottomLeftPos = soccerField.flagBottomLeft.position;
-        var forward = (soccerField.flagTopLeft.position - bottomLeftPos).normalized;
-        var right = (soccerField.flagBottomRight.position - bottomLeftPos).normalized;
-
-        // TODO: Do something smart here, brain is disfunctional
-
-        targetPos = new Vector3(x, height, z);
+        Vector3 origin = areaBottomLeft;
+        
+        targetPos = origin + xPos * worldX + yPos * worldY;
+        targetPos.y = height;
     }
 
     private void MovePuck()

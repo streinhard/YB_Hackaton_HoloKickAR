@@ -11,8 +11,8 @@ public class NetworkState : NetworkBehaviour
 
     private int numberOfRegisteredPlayers;
 
-    [SyncVar]public int serverScore;
-    [SyncVar]public int clientScore;
+    [SyncVar(hook = "OnChangeServerScore")]public int serverScore;
+    [SyncVar(hook = "OnChangeClientScore")]public int clientScore;
     
     private NetworkField _footballNetworkField;
 
@@ -38,5 +38,37 @@ public class NetworkState : NetworkBehaviour
         if (forServer) {
             serverScore++;
         } else { clientScore++; }
+
+        ballTransform = GameObject.FindWithTag("ball").transform;
+        ballTransform.position = ballTransform.parent.position + Vector3.up * 0.1f;
+        ballTransform.gameObject.SetActive(false);
+
+        
+        Invoke("SpawnBall", 2);
+    }
+
+    private Transform ballTransform;
+    
+    private void SpawnBall()
+    {
+        ballTransform.gameObject.SetActive(true);
+    }
+
+    private void OnChangeServerScore(int newServerScore)
+    {
+        if (isServer) {
+            FindObjectOfType<ScoreText>().UpdateScore(newServerScore, clientScore);
+        } else {
+            FindObjectOfType<ScoreText>().UpdateScore(clientScore, newServerScore);
+        }
+    }
+    
+    private void OnChangeClientScore(int newClientScore)
+    {
+        if (isServer) {
+            FindObjectOfType<ScoreText>().UpdateScore(serverScore, newClientScore);
+        } else {
+            FindObjectOfType<ScoreText>().UpdateScore(newClientScore, serverScore);
+        }
     }
 }
